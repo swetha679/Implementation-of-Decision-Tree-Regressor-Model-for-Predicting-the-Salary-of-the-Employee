@@ -19,74 +19,65 @@ To write a program to implement the Decision Tree Regressor Model for predicting
 
 
 ## Program:
-```
+Program to implement the Decision Tree Regressor Model for Predicting the Salary of the Employee.
 
-Program to implement the Decision Tree Regressor Model for Predicting Employee Salary.
 Developed by: B R SWETHA NIVASINI
-Register Number:  
 
-```
+RegisterNumber: 212224040345
+
 ```
 import pandas as pd
-data=pd.read_csv("Salary.csv")
+data=pd.read_csv("C:\\Users\\admin\\OneDrive\\Desktop\\Folders\\ML\\DATASET-20250226\\Salary.csv")
 data.head()
+```
+![image](https://github.com/user-attachments/assets/fb7e5837-fa27-4dd2-9fc8-87b5072ac334)
 
+```
 data.info()
-
 data.isnull().sum()
+```
+![image](https://github.com/user-attachments/assets/e898c62f-8a56-4b06-9149-7b960db1ea02)
 
+```
 from sklearn.preprocessing import LabelEncoder
 le=LabelEncoder()
-
 data["Position"]=le.fit_transform(data["Position"])
 data.head()
+```
+![image](https://github.com/user-attachments/assets/b7b88868-579e-498d-9114-e41159ff1733)
 
+```
 x=data[["Position","Level"]]
 x.head()
+y=data["Salary"]
+y.head()
+```
+![image](https://github.com/user-attachments/assets/af7af4d2-82a1-4f1f-88e7-6f2347954aeb)
 
-y=data[["Salary"]]
-
+```
 from sklearn.model_selection import train_test_split
-x_train, x_test, y_train, y_test=train_test_split(x,y,test_size=0.2,random_state=2)
+x_train,x_test,y_train,y_test=train_test_split(x,y,test_size=0.2,random_state=2)
+
 from sklearn.tree import DecisionTreeRegressor
 dt=DecisionTreeRegressor()
 dt.fit(x_train,y_train)
 y_pred=dt.predict(x_test)
+y_pred
+```
+![image](https://github.com/user-attachments/assets/06fd2d05-c429-4c48-83e1-6038dbe82145)
+
+```
 from sklearn import metrics
-mse=metrics.mean_squared_error(y_test, y_pred)
-mse
-r2=metrics.r2_score(y_test,y_pred)
+from sklearn.metrics import r2_score
+r2 = r2_score(y_test, y_pred)
 r2
+```
+![image](https://github.com/user-attachments/assets/3f40d399-0f10-4ab7-8117-86ab06f5c8b1)
+```
 dt.predict([[5,6]])
 ```
 
-
-## Output:
-![Decision Tree Regressor Model for Predicting the Salary of the Employee](sam.png)
-
-![Screenshot 2025-04-20 080430](https://github.com/user-attachments/assets/1fdce190-99fe-48d6-973e-e37b2cbe3065)
-
-![Screenshot 2025-04-20 080443](https://github.com/user-attachments/assets/b15df943-2254-4943-a447-5d4e5e582e01)
-
-![Screenshot 2025-04-20 080453](https://github.com/user-attachments/assets/5fe64c27-29bb-4bd1-9fd9-aaed57f99cf9)
-
-![Screenshot 2025-04-20 080505](https://github.com/user-attachments/assets/a37e75ae-d078-4dfd-a9a2-e66f467a0378)
-
-![Screenshot 2025-04-20 080517](https://github.com/user-attachments/assets/3da973c1-662c-4ef6-b4e1-ad1ebc4fab3c)
-
-
-![Screenshot 2025-04-20 080527](https://github.com/user-attachments/assets/f459a553-67be-44ea-80da-acfb14319674)
-
-
-![Screenshot 2025-04-20 080533](https://github.com/user-attachments/assets/58241620-1353-4df7-b9d7-66f5d171dde4)
-
-
-![Screenshot 2025-04-20 080542](https://github.com/user-attachments/assets/3b4dbfcd-6411-4847-95e4-78613928e92d)
-
-
-![Screenshot 2025-04-20 080550](https://github.com/user-attachments/assets/8a01751f-704e-4d56-bc5d-7c81c6cf1f09)
-
-
+![image](https://github.com/user-attachments/assets/5bddfaf6-ef95-4654-8526-11fea921f807)
 
 
 
